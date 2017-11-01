@@ -1,0 +1,33 @@
+<div>
+<ul >
+
+  <li *ngFor="let i of items">
+    <app-nav-bardetails [items]="i" (click)="select(i.name)"></app-nav-bardetails>
+
+  </li>
+
+</ul>
+</div>
+
+<div class="decription">
+  <div class="main">
+
+    <div *ngFor="let i of items">
+     <!-- {{i|json}}-->
+      <app-nav-bardec [desc]="i" *ngIf='i.name==globevar'></app-nav-bardec>
+
+
+
+    </div>
+    <div  *ngIf="globevar=='update'">
+
+      <input type="text" placeholder="enter name here" #itemname>
+      <input type="text" placeholder="enter description " #itemdesc>
+      <button appColorchange (click)="update(itemname.value,itemdesc.value)">Update</button>
+
+    </div>
+  </div>
+
+</div>
+
+
